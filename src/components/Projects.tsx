@@ -127,7 +127,7 @@ function FeaturedProject() {
           style={{ boxShadow: '0 0 30px rgba(220, 38, 38, 0.12), inset 0 0 30px rgba(220, 38, 38, 0.04)' }}
         />
 
-        <div className="relative bg-surface border border-white/[0.04] group-hover:border-accent/20 rounded-2xl p-8 md:p-14 overflow-hidden transition-colors duration-500">
+        <div className="relative bg-surface border border-white/[0.04] group-hover:border-accent/20 rounded-2xl p-6 md:p-14 overflow-hidden transition-colors duration-500">
           {/* Subtle glow orb */}
           <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
             style={{ boxShadow: '0 0 200px 80px rgba(220, 38, 38, 0.03)' }}
@@ -135,15 +135,15 @@ function FeaturedProject() {
 
           <div className="relative z-10">
             {/* Top row — label + links */}
-            <div className="flex items-start justify-between mb-10">
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 mb-8 md:mb-10">
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[11px] font-mono font-medium tracking-wider uppercase">
                   Featured Project
                 </span>
                 <span className="text-xs font-mono text-muted/30">{featured.year}</span>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <a href={featured.github} target="_blank" rel="noopener noreferrer" data-hover
                   className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] text-muted text-xs font-mono hover:text-white hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300"
                 >
@@ -160,17 +160,17 @@ function FeaturedProject() {
             </div>
 
             {/* Title + tagline */}
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 tracking-tight leading-[1.05] group-hover:text-accent transition-colors duration-500">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 tracking-tight leading-[1.05] group-hover:text-accent transition-colors duration-500">
               {featured.title}
             </h3>
-            <p className="text-xl text-muted font-light max-w-2xl mb-12">
+            <p className="text-lg md:text-xl text-muted font-light max-w-2xl mb-10 md:mb-12">
               {featured.tagline}
             </p>
 
             {/* Metrics row */}
-            <div className="grid grid-cols-3 gap-4 mb-14">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-10 md:mb-14">
               {featured.metrics.map((m, i) => (
-                <div key={i} className="bg-deep-black/50 border border-white/[0.04] rounded-xl p-5 text-center hover:border-accent/20 transition-colors duration-300">
+                <div key={i} className="bg-deep-black/50 border border-white/[0.04] rounded-xl p-4 md:p-5 text-center hover:border-accent/20 transition-colors duration-300">
                   <m.icon className="w-4 h-4 text-accent/40 mx-auto mb-3" />
                   <p className="text-2xl md:text-3xl font-heading font-bold text-white tabular-nums">
                     {m.value === 0 ? '0' : <CountUp end={m.value} suffix={m.suffix} duration={2} />}
@@ -182,7 +182,7 @@ function FeaturedProject() {
             </div>
 
             {/* Case study — deep dive */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mb-10">
               {[
                 { label: 'The Problem', text: featured.problem },
                 { label: 'My Approach', text: featured.approach },

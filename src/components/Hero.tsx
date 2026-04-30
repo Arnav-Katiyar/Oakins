@@ -102,11 +102,11 @@ export function Hero() {
             <span className="text-white/70">Hackathon finalist. Systems thinker.</span>
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <a
               href="#projects"
               data-hover
-              className="group relative px-8 py-4 bg-white text-deep-black font-semibold rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
+              className="group relative px-6 py-3 md:px-8 md:py-4 bg-white text-deep-black font-semibold rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
             >
               <span className="relative z-10">View work</span>
               <div className="absolute inset-0 bg-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
@@ -115,7 +115,7 @@ export function Hero() {
             <a
               href="#contact"
               data-hover
-              className="px-8 py-4 text-muted font-medium rounded-full border border-white/10 hover:border-accent/50 hover:text-white transition-all duration-300"
+              className="px-6 py-3 md:px-8 md:py-4 text-muted font-medium rounded-full border border-white/10 hover:border-accent/50 hover:text-white transition-all duration-300"
             >
               Contact
             </a>

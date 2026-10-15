@@ -1,24 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
+import { COMPANY } from '@/lib/company';
 
-const steps = [
-  { 
-    title: "Analyze the Constraints", 
-    detail: "Every project has boundaries — time, tech, or logic. I map these out first. Knowing what you can't do defines what you can." 
-  },
-  { 
-    title: "Build a Roadmap", 
-    detail: "Architecture before code. I design the database schemas, component trees, and state management flow before writing a single line." 
-  },
-  { 
-    title: "Learn Along the Way", 
-    detail: "Tech moves fast. If a constraint requires a new tool, language, or paradigm, I dive into the docs and learn it on the fly." 
-  },
-  { 
-    title: "Create, Test, Deploy", 
-    detail: "Execution is everything. I build the system, write the tests that matter, and ship it to production. Rinse and repeat." 
-  },
-];
+const steps = COMPANY.process;
 
 export function Philosophy() {
   return (

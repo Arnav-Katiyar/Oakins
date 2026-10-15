@@ -2,6 +2,7 @@
 
 import { motion, useAnimate } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { COMPANY } from '@/lib/company';
 
 const EASE_SHARP = [0.76, 0, 0.24, 1] as const;
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -25,10 +26,10 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
       await wait(120);
 
-      // ── Phase 2: "IIT MADRAS" fades up between the lines ───────────
+      // ── Phase 2: Company Name fades up between the lines ───────────
       await animate(
         '.pre-iit',
-        { opacity: 1, y: 0, letterSpacing: '0.28em' },
+        { opacity: 1, y: 0, letterSpacing: '0.24em' },
         { duration: 0.55, ease: EASE_OUT }
       );
 
@@ -105,7 +106,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
       ref={scope}
       className="fixed inset-0 z-[9998] bg-[#030303] flex items-center justify-center overflow-hidden"
     >
-      {/* ── Lines + IIT MADRAS ── */}
+      {/* ── Lines + Company Name ── */}
       {!showFinal && (
         <div className="relative flex items-center gap-9">
           {/* Left vertical line */}
@@ -115,13 +116,13 @@ export function Preloader({ onComplete }: PreloaderProps) {
             style={{ width: 2, height: 76, transformOrigin: 'center' }}
           />
 
-          {/* IIT MADRAS */}
+          {/* Company Name */}
           <motion.p
-            className="pre-iit font-heading font-bold text-white text-xl md:text-2xl"
+            className="pre-iit font-heading font-bold text-white text-lg md:text-2xl uppercase tracking-wider text-center"
             initial={{ opacity: 0, y: 10, letterSpacing: '0.04em' }}
             style={{ letterSpacing: '0.04em' }}
           >
-            IIT MADRAS
+            {COMPANY.name}
           </motion.p>
 
           {/* Right vertical line */}
@@ -138,10 +139,10 @@ export function Preloader({ onComplete }: PreloaderProps) {
         <div className="text-center px-6">
           <motion.h1
             className="pre-name font-heading font-bold text-white tracking-tight leading-[1]"
-            style={{ fontSize: 'clamp(2.8rem, 8vw, 6rem)' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)' }}
             initial={{ opacity: 0, y: 28 }}
           >
-            Anadi Sharma
+            {COMPANY.name}
           </motion.h1>
 
           <motion.p
@@ -149,15 +150,15 @@ export function Preloader({ onComplete }: PreloaderProps) {
             style={{ fontSize: 'clamp(0.65rem, 2vw, 0.8rem)' }}
             initial={{ opacity: 0, y: 18 }}
           >
-            Full Stack Developer
+            Software Solutions & Product Engineering
           </motion.p>
 
           <motion.p
-            className="pre-tag font-sans text-muted mt-3 tracking-wider"
+            className="pre-tag font-sans text-muted mt-3 tracking-wider max-w-lg mx-auto"
             style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.85rem)' }}
             initial={{ opacity: 0, y: 14 }}
           >
-            Building legacy products.
+            {COMPANY.subTagline}
           </motion.p>
         </div>
       )}

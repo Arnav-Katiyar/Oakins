@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { TextScramble } from './TextScramble';
+import { COMPANY } from '@/lib/company';
 
 const lineVariants = {
   hidden: { width: 0 },
@@ -20,7 +21,7 @@ const wordVariants = {
   }),
 };
 
-const heroWords = ['I', 'build', 'things', 'that', 'survive', 'real', 'traffic.'];
+const heroWords = COMPANY.heroHeadline;
 
 export function Hero() {
   return (
@@ -57,7 +58,7 @@ export function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
           <TextScramble
-            text="Available for opportunities"
+            text={COMPANY.statusText}
             className="text-sm font-mono text-muted tracking-wide"
             delay={1400}
             speed={25}
@@ -96,10 +97,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-8"
         >
-          <p className="text-lg md:text-xl text-muted max-w-md font-light leading-relaxed">
-            Full stack developer at IET DAVV.
+          <p className="text-lg md:text-xl text-muted max-w-lg font-light leading-relaxed">
+            Software agency & digital product studio.
             <br />
-            <span className="text-white/70">Hackathon finalist. Systems thinker.</span>
+            <span className="text-white/70">High-performance web apps, mobile solutions, and scalable cloud systems.</span>
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -108,16 +109,16 @@ export function Hero() {
               data-hover
               className="group relative px-6 py-3 md:px-8 md:py-4 bg-white text-deep-black font-semibold rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
             >
-              <span className="relative z-10">View work</span>
+              <span className="relative z-10">Explore solutions</span>
               <div className="absolute inset-0 bg-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-              <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 z-10 font-semibold">View work</span>
+              <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 z-10 font-semibold">Explore solutions</span>
             </a>
             <a
               href="#contact"
               data-hover
               className="px-6 py-3 md:px-8 md:py-4 text-muted font-medium rounded-full border border-white/10 hover:border-accent/50 hover:text-white transition-all duration-300"
             >
-              Contact
+              Get in touch
             </a>
           </div>
         </motion.div>

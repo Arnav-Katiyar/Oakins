@@ -1,10 +1,12 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { COMPANY } from '@/lib/company';
 
 const navLinks = [
   { label: 'Work', href: '#projects' },
   { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -42,15 +44,15 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="group flex items-baseline font-heading font-bold text-white text-2xl tracking-tighter transition-colors duration-300" data-hover>
-          <span className="group-hover:text-accent transition-colors duration-300">A</span>
-          <span className="text-white max-w-0 overflow-hidden opacity-0 group-hover:max-w-[80px] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-            NADI&nbsp;
+          <span className="group-hover:text-accent transition-colors duration-300">{COMPANY.logo.firstWordLead}</span>
+          <span className="text-white max-w-0 overflow-hidden opacity-0 group-hover:max-w-[120px] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+            {COMPANY.logo.firstWordRest}&nbsp;
           </span>
-          <span className="group-hover:text-accent transition-colors duration-300">S</span>
-          <span className="text-white max-w-0 overflow-hidden opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-            HARMA
+          <span className="group-hover:text-accent transition-colors duration-300">{COMPANY.logo.secondWordLead}</span>
+          <span className="text-white max-w-0 overflow-hidden opacity-0 group-hover:max-w-[120px] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+            {COMPANY.logo.secondWordRest}
           </span>
-          <span className="text-accent">.</span>
+          <span className="text-accent">{COMPANY.logo.dot}</span>
         </a>
 
         {/* Center Pill Navigation */}

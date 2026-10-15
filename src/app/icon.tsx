@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og';
-
-
+import { COMPANY } from '@/lib/company';
 
 // Image metadata
 export const size = {
@@ -10,6 +9,7 @@ export const size = {
 export const contentType = 'image/png';
 
 export default function Icon() {
+  const initial = COMPANY.logo?.firstWordLead?.toLowerCase() || 'n';
   return new ImageResponse(
     (
       <div
@@ -30,7 +30,7 @@ export default function Icon() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'baseline', marginTop: '2px', marginLeft: '2px' }}>
-          a<span style={{ color: '#dc2626' }}>.</span>
+          {initial}<span style={{ color: '#dc2626' }}>.</span>
         </div>
       </div>
     ),

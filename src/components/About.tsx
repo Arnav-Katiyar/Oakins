@@ -2,6 +2,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { CountUp } from './CountUp';
+import { COMPANY } from '@/lib/company';
 
 const stagger = {
   hidden: {},
@@ -15,12 +16,7 @@ const fadeSlide = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-const stats = [
-  { value: 15, suffix: '', label: 'Engineers led' },
-  { value: 40, suffix: '%', label: 'Faster loads' },
-  { value: 100, suffix: '+', label: 'Total users' },
-  { value: 4, suffix: 'x', label: 'Hackathon winner' },
-];
+const stats = COMPANY.stats;
 
 export function About() {
   const ref = useRef(null);
@@ -38,7 +34,7 @@ export function About() {
           transition={{ duration: 0.5 }}
           className="text-sm font-mono text-accent/60 tracking-wide mb-16"
         >
-          // about
+          // about the studio
         </motion.p>
 
         {/* Stats row — big numbers */}
@@ -77,17 +73,17 @@ export function About() {
             className="lg:col-span-5"
           >
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-[1.1] mb-6">
-              I think in
+              We think in
               <br />
               <span className="text-white/50">systems.</span>
             </h2>
             <p className="text-muted text-lg leading-relaxed">
-              Not just features, tickets, or sprints — but the architecture underneath.
-              How data flows. Where things break. What scales.
+              Not just templates, tickets, or vanity pages — but the engineering underneath.
+              How data flows securely. Where bottlenecks hide. What scales to real traffic.
             </p>
           </motion.div>
 
-          {/* Right — experience + education */}
+          {/* Right — company capabilities */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,56 +91,56 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 space-y-8"
           >
-            {/* Experience */}
+            {/* Core Capability Card */}
             <div className="bg-surface border border-white/[0.04] rounded-xl p-8">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white font-heading">Frontend Lead</h3>
-                <span className="text-xs font-mono text-accent/60">IET DAVV — 2024→now</span>
+                <h3 className="text-lg font-semibold text-white font-heading">End-to-End Product Engineering</h3>
+                <span className="text-xs font-mono text-accent/60">Full-Cycle Services</span>
               </div>
               <ul className="space-y-4 text-[15px] text-muted leading-relaxed">
                 <li className="flex gap-3">
                   <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Leading a 15-person team building the institute's official web portal
+                  Building bespoke web and mobile platforms tailored to unique business workflows
                 </li>
                 <li className="flex gap-3">
                   <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Built a component system that cut load times by 40% across 100+ users
+                  Engineering high-performance architectures that deliver 40%+ faster load times
                 </li>
                 <li className="flex gap-3">
                   <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Shipping accessible, responsive React/Next.js interfaces daily
+                  Shipping clean, type-safe code with transparent sprints and weekly live preview builds
                 </li>
               </ul>
             </div>
 
-            {/* Education + Milestones — side by side */}
+            {/* Core Focus + Quality Standards — side by side */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-surface border border-white/[0.04] rounded-xl p-6">
-                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Education</p>
+                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Core Disciplines</p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-white font-medium">B.E. Information Technology</p>
-                    <p className="text-xs text-muted">IET DAVV • 2024–2028</p>
+                    <p className="text-sm text-white font-medium">Web Applications & SaaS</p>
+                    <p className="text-xs text-muted">High-converting portals & cloud platforms</p>
                   </div>
                   <div className="h-px bg-white/[0.03]" />
                   <div>
-                    <p className="text-sm text-white font-medium">B.S. Data Science</p>
-                    <p className="text-xs text-muted">IIT Madras • 2024–Present</p>
+                    <p className="text-sm text-white font-medium">Cross-Platform Mobile</p>
+                    <p className="text-xs text-muted">Native iOS & Android apps</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-surface border border-white/[0.04] rounded-xl p-6">
-                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Hackathons</p>
+                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Engineering Standards</p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-white font-medium">Winner</p>
-                    <p className="text-xs text-muted">4 Major Hackathons</p>
+                    <p className="text-sm text-white font-medium">Production-Grade Quality</p>
+                    <p className="text-xs text-muted">Type-safe TypeScript, automated testing</p>
                   </div>
                   <div className="h-px bg-white/[0.03]" />
                   <div>
-                    <p className="text-sm text-white font-medium">Top 30 / 187</p>
-                    <p className="text-xs text-muted">Smart India Hackathon 2025</p>
+                    <p className="text-sm text-white font-medium">High Availability & Speed</p>
+                    <p className="text-xs text-muted">Sub-second response & 99.9% uptime</p>
                   </div>
                 </div>
               </div>

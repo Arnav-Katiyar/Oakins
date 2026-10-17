@@ -83,7 +83,7 @@ export function Navbar() {
             </div>
           )}
           <a
-            href="mailto:11sharma@gmail.com"
+            href="#contact"
             data-hover
             className="text-[11px] font-mono font-semibold tracking-wider px-6 py-2.5 rounded-full bg-white text-deep-black hover:bg-accent hover:text-white transition-colors duration-300 uppercase"
           >

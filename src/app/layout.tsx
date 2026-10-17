@@ -8,8 +8,8 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-headi
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: `${COMPANY.name} — Software Solutions & Digital Product Studio`,
-  description: `${COMPANY.name}: ${COMPANY.subTagline}`,
+  title: `${COMPANY.name} — Modern Websites & Software Studio`,
+  description: `${COMPANY.subTagline}`,
 };
 
 export default function RootLayout({

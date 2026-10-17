@@ -150,7 +150,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             style={{ fontSize: 'clamp(0.65rem, 2vw, 0.8rem)' }}
             initial={{ opacity: 0, y: 18 }}
           >
-            Software Solutions & Product Engineering
+            Website & Software Studio
           </motion.p>
 
           <motion.p
@@ -158,7 +158,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.85rem)' }}
             initial={{ opacity: 0, y: 14 }}
           >
-            {COMPANY.subTagline}
+            Good ideas deserve better websites.
           </motion.p>
         </div>
       )}

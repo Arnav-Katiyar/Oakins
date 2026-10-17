@@ -1,22 +1,21 @@
 'use client';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { CountUp } from './CountUp';
-import { COMPANY } from '@/lib/company';
 
-const stagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08 },
+const approachCards = [
+  {
+    title: "Business-First Thinking",
+    description: "We understand your goals before deciding what to build.",
   },
-};
-
-const fadeSlide = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
-};
-
-const stats = COMPANY.stats;
+  {
+    title: "Design That Makes Sense",
+    description: "Clear layouts, intuitive navigation, and consistent visual design.",
+  },
+  {
+    title: "Built to Grow",
+    description: "Practical solutions designed with maintainability and future improvements in mind.",
+  },
+];
 
 export function About() {
   const ref = useRef(null);
@@ -32,119 +31,81 @@ export function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-sm font-mono text-accent/60 tracking-wide mb-16"
+          className="text-sm font-mono text-accent/60 tracking-wide mb-12"
         >
-          // about the studio
+          // about us
         </motion.p>
 
-        {/* Stats row — big numbers */}
+        {/* Studio Positioning Statement (Replaces fabricated numbers) */}
         <motion.div
           ref={ref}
-          variants={stagger}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.03] rounded-2xl overflow-hidden mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-surface border border-white/[0.05] rounded-2xl p-8 md:p-12 mb-20 relative overflow-hidden"
         >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              variants={fadeSlide}
-              className="bg-deep-black p-8 md:p-10 flex flex-col items-center text-center group"
-            >
-              <p className="text-4xl md:text-5xl font-heading font-bold text-white mb-2 tabular-nums">
-                <CountUp end={stat.value} suffix={stat.suffix} duration={2} />
-              </p>
-              <p className="text-xs text-muted/60 font-mono uppercase tracking-wider">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/[0.04] blur-[90px] rounded-full pointer-events-none" />
+          <div className="max-w-3xl relative z-10">
+            <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-3">
+              Studio Manifesto
+            </span>
+            <h3 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-4">
+              Small team. Big ambition.
+            </h3>
+            <p className="text-muted text-base md:text-lg font-light leading-relaxed">
+              We focus on thoughtful design, clean development, and practical digital solutions built around your goals.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        {/* Content grid — Our Approach */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
-          {/* Left — big statement */}
+          {/* Left — statement */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 lg:sticky lg:top-32"
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-[1.1] mb-6">
-              We think in
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-[1.1] mb-6">
+              We think beyond
               <br />
-              <span className="text-white/50">systems.</span>
+              <span className="text-white/50">websites.</span>
             </h2>
-            <p className="text-muted text-lg leading-relaxed">
-              Not just templates, tickets, or vanity pages — but the engineering underneath.
-              How data flows securely. Where bottlenecks hide. What scales to real traffic.
+            <p className="text-muted text-base md:text-lg font-light leading-relaxed">
+              Every project starts with understanding the problem, choosing the right approach, and building something useful.
             </p>
           </motion.div>
 
-          {/* Right — company capabilities */}
+          {/* Right — 3 Approach Cards */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 space-y-8"
+            className="lg:col-span-7 space-y-4"
           >
-            {/* Core Capability Card */}
-            <div className="bg-surface border border-white/[0.04] rounded-xl p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-white font-heading">End-to-End Product Engineering</h3>
-                <span className="text-xs font-mono text-accent/60">Full-Cycle Services</span>
-              </div>
-              <ul className="space-y-4 text-[15px] text-muted leading-relaxed">
-                <li className="flex gap-3">
-                  <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Building bespoke web and mobile platforms tailored to unique business workflows
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Engineering high-performance architectures that deliver 40%+ faster load times
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent/40 mt-0.5 shrink-0 text-lg leading-none">›</span>
-                  Shipping clean, type-safe code with transparent sprints and weekly live preview builds
-                </li>
-              </ul>
-            </div>
-
-            {/* Core Focus + Quality Standards — side by side */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-surface border border-white/[0.04] rounded-xl p-6">
-                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Core Disciplines</p>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-sm text-white font-medium">Web Applications & SaaS</p>
-                    <p className="text-xs text-muted">High-converting portals & cloud platforms</p>
-                  </div>
-                  <div className="h-px bg-white/[0.03]" />
-                  <div>
-                    <p className="text-sm text-white font-medium">Cross-Platform Mobile</p>
-                    <p className="text-xs text-muted">Native iOS & Android apps</p>
-                  </div>
+            {approachCards.map((card, i) => (
+              <div
+                key={i}
+                data-hover
+                className="bg-surface border border-white/[0.04] hover:border-accent/30 rounded-xl p-6 md:p-8 transition-colors duration-300 group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-xs font-mono text-accent/80 group-hover:text-accent transition-colors">
+                    0{i + 1}
+                  </span>
+                  <h3 className="text-lg md:text-xl font-heading font-semibold text-white group-hover:text-white">
+                    {card.title}
+                  </h3>
                 </div>
+                <p className="text-sm md:text-base text-muted font-light leading-relaxed pl-7">
+                  {card.description}
+                </p>
               </div>
-
-              <div className="bg-surface border border-white/[0.04] rounded-xl p-6">
-                <p className="text-xs font-mono text-muted/40 uppercase tracking-wider mb-4">Engineering Standards</p>
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-sm text-white font-medium">Production-Grade Quality</p>
-                    <p className="text-xs text-muted">Type-safe TypeScript, automated testing</p>
-                  </div>
-                  <div className="h-px bg-white/[0.03]" />
-                  <div>
-                    <p className="text-sm text-white font-medium">High Availability & Speed</p>
-                    <p className="text-xs text-muted">Sub-second response & 99.9% uptime</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </div>

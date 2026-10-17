@@ -66,11 +66,11 @@ export function Hero() {
         </motion.div>
 
         {/* Main headline — word by word reveal */}
-        <h1 className="text-[clamp(3rem,8vw,8rem)] font-heading font-bold tracking-tighter leading-[0.9] mb-8">
+        <h1 className="text-[clamp(2.8rem,7.5vw,7.5rem)] font-heading font-bold tracking-tighter leading-[0.92] mb-8">
           {heroWords.map((word, i) => (
             <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
               <motion.span
-                className={`inline-block ${i >= 4 ? 'text-accent' : 'text-white'}`}
+                className={`inline-block ${i >= 3 ? 'text-accent' : 'text-white'}`}
                 custom={i}
                 initial="hidden"
                 animate="visible"
@@ -97,28 +97,26 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-8"
         >
-          <p className="text-lg md:text-xl text-muted max-w-lg font-light leading-relaxed">
-            Software agency & digital product studio.
-            <br />
-            <span className="text-white/70">High-performance web apps, mobile solutions, and scalable cloud systems.</span>
+          <p className="text-base md:text-lg text-muted max-w-lg font-light leading-relaxed">
+            We design and build modern websites and digital experiences that help businesses establish their online presence and turn ideas into reality.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="#projects"
+              href="#contact"
               data-hover
               className="group relative px-6 py-3 md:px-8 md:py-4 bg-white text-deep-black font-semibold rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
             >
-              <span className="relative z-10">Explore solutions</span>
+              <span className="relative z-10">Let's Talk</span>
               <div className="absolute inset-0 bg-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-              <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 z-10 font-semibold">Explore solutions</span>
+              <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 z-10 font-semibold">Let's Talk</span>
             </a>
             <a
-              href="#contact"
+              href="#projects"
               data-hover
               className="px-6 py-3 md:px-8 md:py-4 text-muted font-medium rounded-full border border-white/10 hover:border-accent/50 hover:text-white transition-all duration-300"
             >
-              Get in touch
+              Explore Our Work
             </a>
           </div>
         </motion.div>

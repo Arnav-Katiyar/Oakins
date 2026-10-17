@@ -13,10 +13,20 @@ export function Philosophy() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="text-sm font-mono text-accent/60 tracking-wide mb-20"
+          className="text-sm font-mono text-accent/60 tracking-wide mb-4"
         >
-          // working process
+          // our process
         </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-5xl font-heading font-bold text-white mb-16"
+        >
+          A simple process. Clear progress.
+        </motion.h2>
 
         <div className="relative">
           {/* Vertical connecting line */}

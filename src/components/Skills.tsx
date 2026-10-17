@@ -24,12 +24,12 @@ export function Skills() {
           className="max-w-3xl mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-            Bespoke software.
+            Digital solutions,
             <br />
-            <span className="text-muted/40">From concept to production.</span>
+            <span className="text-muted/40">built around your goals.</span>
           </h2>
           <p className="text-muted text-base md:text-lg font-light leading-relaxed">
-            We provide full-stack software development services tailored to startups and established companies looking to ship fast, reliable digital products.
+            From your first website to a custom application, we help turn ideas into useful digital experiences.
           </p>
         </motion.div>
 

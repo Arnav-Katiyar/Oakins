@@ -1,69 +1,98 @@
 'use client';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Code2, Zap, Clock, Shield } from 'lucide-react';
-import { useState } from 'react';
-import { CountUp } from './CountUp';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Code2, Globe, Sparkles, Layout, Smartphone, Database, Terminal, Maximize2, X, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-/* ─── Project Data (Company Demo / Case Studies) ─── */
+/* ─── Project Data (Real Client Work & Genuine Prototypes) ─── */
+const screenshots = [
+  {
+    id: "homepage",
+    title: "Homepage & Brand Identity",
+    subtitle: "Hero showcase featuring the 2026 Atelier Collection and worldwide shipping banner.",
+    url: "amazeglobalexports.com",
+    src: "/projects/amaze-homepage.png",
+    alt: "Amaze Global Exports homepage hero section showing brand identity and navigation",
+  },
+  {
+    id: "catalog",
+    title: "Curated Product Catalog",
+    subtitle: "Responsive product grid highlighting women's ethnic and western collections with transparent pricing.",
+    url: "amazeglobalexports.com/shop",
+    src: "/projects/amaze-catalog.png",
+    alt: "Amaze Global Exports product catalog and seasonal collections",
+  },
+  {
+    id: "features",
+    title: "Quality Standards & Export Logistics",
+    subtitle: "Detailing premium craftsmanship, worldwide delivery to 100+ countries, and seamless exchanges.",
+    url: "amazeglobalexports.com/#about",
+    src: "/projects/amaze-features.png",
+    alt: "Amaze Global Exports export services and company highlights",
+  },
+];
+
 const featured = {
-  title: "Cloud SaaS Platform Architecture",
-  year: "2025",
-  tagline: "High-throughput data synchronization. Sub-200ms latency at scale.",
-  description: "A full-scale cloud platform providing real-time data ingestion, automated workflows, and enterprise analytics designed for modern businesses.",
-  problem: "Legacy customer systems experienced high latency spikes and data inconsistencies during peak usage hours under heavy traffic.",
-  approach: "Engineered an event-driven serverless architecture on Next.js and edge infrastructure with distributed caching, optimistic UI updates, and automated scaling.",
-  outcome: "Sub-200ms end-to-end response time. 99.99% operational uptime and zero data loss under concurrent spike loads.",
-  metrics: [
-    { value: 200, suffix: "ms", label: "Latency", icon: Clock },
-    { value: 0, suffix: "", label: "Downtime Incidents", icon: Shield },
-    { value: 100, suffix: "%", label: "Data Consistency", icon: Zap },
+  title: "Amaze Global Exports",
+  year: "2026",
+  tagline: "A business website designed to present the company's products and services, strengthen its online presence, and help potential buyers discover the business.",
+  description: "A business website designed to present the company's products and services, strengthen its online presence, and help potential buyers discover the business.",
+  problem: "The business needed a dedicated digital presence to showcase its fashion catalog, establish credibility with new audiences, and provide clear inquiry channels for prospective clients.",
+  approach: "Designed and built a responsive website focused on clear category navigation, curated collection galleries, and accessible contact points across all devices.",
+  outcome: "A modern, functional online presence that clearly presents the brand's offerings and gives potential buyers a seamless way to connect.",
+  features: [
+    { title: "Responsive Layouts", label: "Mobile & Desktop", icon: Smartphone },
+    { title: "Product Presentation", label: "Curated Collections", icon: Layout },
+    { title: "Inquiry Pathways", label: "Buyer Discovery", icon: Globe },
   ],
-  tech: ["Next.js", "TypeScript", "Node.js", "Cloud Infrastructure"],
+  tech: ["Next.js", "TypeScript", "Tailwind CSS", "Responsive Design"],
   github: "",
-  live: "",
-  color: "#8b5cf6",
+  live: "https://www.amazeglobalexports.com/",
+  color: "#e11d48",
 };
 
 const projects = [
   {
-    title: "Real-Time Telehealth App",
+    title: "Traffic Monitoring Dashboard",
+    category: "Prototype",
     year: "2025",
-    tagline: "Cross-platform mobile application with secure patient-doctor sync.",
-    metric: "10K+",
-    metricLabel: "Active users",
-    problem: "Client required a HIPAA-compliant mobile portal with real-time video, appointments, and offline record caching.",
-    approach: "Designed a React Native application with end-to-end encryption, local SQLite sync, and streamlined onboarding.",
-    outcome: "4.9 App Store rating across 10,000+ registered patients with zero security vulnerabilities.",
-    tech: ["React Native", "TypeScript", "WebRTC"],
-    github: "",
-    live: "",
+    tagline: "Interactive data visualization prototype with dark-mode telemetry charts.",
+    badge: "PROTOTYPE",
+    badgeLabel: "Interactive Demo",
+    problem: "Visualizing high-frequency geographic and time-series data without UI lag or visual clutter.",
+    approach: "Built a Next.js dashboard prototype utilizing dynamic charts, filter controls, and streaming mock data feeds.",
+    outcome: "Demonstrated responsive data presentation and smooth filter interactions under real-time state updates.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Data Visualization"],
+    github: "https://github.com/itsmeanadi/Merge-Conflicts/tree/main/traffic-frontend",
+    live: "https://merge-conflicts-6k9l.vercel.app/",
     color: "#06b6d4",
   },
   {
-    title: "Logistics Operations Dashboard",
+    title: "Live Event Leaderboard",
+    category: "Event Project",
     year: "2025",
-    tagline: "50K+ daily tracking events with sub-second geospatial updates.",
-    metric: "60×",
-    metricLabel: "Faster queries",
-    problem: "Fleet operators struggled with fragmented GPS trackers and delayed route analytics.",
-    approach: "Created a high-density Next.js operations dashboard integrated with WebSockets and geospatial database indexing.",
-    outcome: "Telemetry insights surfaced in real time, saving 15+ dispatch hours weekly per hub.",
-    tech: ["Next.js", "Python", "WebSockets"],
-    github: "",
-    live: "",
+    tagline: "Real-time competition scoreboard and standings application.",
+    badge: "EVENT APP",
+    badgeLabel: "Live Application",
+    problem: "Competition participants required a clear, real-time standings display without manual page refreshes.",
+    approach: "Developed a focused web application with polling endpoints, high-contrast scoreboards, and persistent rankings.",
+    outcome: "An accessible, responsive scoreboard that reliably displayed live team standings during competitive events.",
+    tech: ["TypeScript", "React", "Node.js", "REST APIs"],
+    github: "https://github.com/itsmeanadi/Leaderboard-CloudStudyJam",
+    live: "https://leaderboard-cloudstudyjam.vercel.app/",
     color: "#f59e0b",
   },
   {
-    title: "Headless E-Commerce Engine",
+    title: "CleanWeb DOM Utility",
+    category: "Utility",
     year: "2025",
-    tagline: "Ultra-fast headless checkout converting 32% higher.",
-    metric: "<1s",
-    metricLabel: "Checkout speed",
-    problem: "Sluggish checkout flows and high cart abandonment on bloated legacy e-commerce stores.",
-    approach: "Bespoke headless architecture with edge API routes, one-click checkout, and resilient payment gateway integrations.",
-    outcome: "Checkout completion time reduced by 65%, driving a 32% lift in conversion.",
-    tech: ["TypeScript", "Next.js", "Stripe API"],
-    github: "",
+    tagline: "Client-side browser extension for dynamic content filtering on single-page apps.",
+    badge: "UTILITY",
+    badgeLabel: "Open Source Tool",
+    problem: "Filtering dynamic DOM mutations within modern JavaScript frameworks without slowing down page rendering.",
+    approach: "Implemented a lightweight Chrome extension leveraging the MutationObserver API to parse and sanitize dynamic content.",
+    outcome: "A functional client-side utility operating with minimal CPU overhead across single-page web applications.",
+    tech: ["JavaScript", "DOM API", "Chrome Extension"],
+    github: "https://github.com/anadisharma5683/Extension_Moderator",
     live: "",
     color: "#10b981",
   },
@@ -86,13 +115,13 @@ export function Projects() {
           <div>
             <p className="text-sm font-mono text-accent/60 tracking-wide mb-4">// selected work</p>
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">
-              Selected Solutions
+              Selected Projects
               <br />
-              <span className="text-muted/30">engineered to perform.</span>
+              <span className="text-muted/30">& prototypes.</span>
             </h2>
           </div>
           <p className="text-sm text-muted max-w-xs text-right hidden md:block">
-            Case studies showcasing real architecture, measurable business outcomes, and deployed systems.
+            A look at client websites, working prototypes, and digital tools we've engineered.
           </p>
         </motion.div>
 
@@ -138,7 +167,7 @@ function FeaturedProject() {
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 mb-8 md:mb-10">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[11px] font-mono font-medium tracking-wider uppercase">
-                  Featured Case Study
+                  Featured Project
                 </span>
                 <span className="text-xs font-mono text-muted/30">{featured.year}</span>
               </div>
@@ -156,12 +185,12 @@ function FeaturedProject() {
                   <a href={featured.live} target="_blank" rel="noopener noreferrer" data-hover
                     className="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-deep-black text-xs font-mono font-medium hover:bg-accent hover:text-white transition-all duration-300"
                   >
-                    Live Demo
+                    Visit Website
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 ) : (
                   <span className="px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] text-muted/50 text-[11px] font-mono">
-                    Production Build / Client NDA
+                    Client Showcase
                   </span>
                 )}
               </div>
@@ -171,20 +200,19 @@ function FeaturedProject() {
             <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 tracking-tight leading-[1.05] group-hover:text-accent transition-colors duration-500">
               {featured.title}
             </h3>
-            <p className="text-lg md:text-xl text-muted font-light max-w-2xl mb-10 md:mb-12">
+            <p className="text-base md:text-lg text-muted font-light max-w-2xl mb-10 md:mb-12">
               {featured.tagline}
             </p>
 
-            {/* Metrics row */}
+            {/* Feature highlights row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-10 md:mb-14">
-              {featured.metrics.map((m, i) => (
+              {featured.features.map((f, i) => (
                 <div key={i} className="bg-deep-black/50 border border-white/[0.04] rounded-xl p-4 md:p-5 text-center hover:border-accent/20 transition-colors duration-300">
-                  <m.icon className="w-4 h-4 text-accent/40 mx-auto mb-3" />
-                  <p className="text-2xl md:text-3xl font-heading font-bold text-white tabular-nums">
-                    {m.value === 0 ? '0' : <CountUp end={m.value} suffix={m.suffix} duration={2} />}
-                    {m.value === 0 && m.suffix}
+                  <f.icon className="w-4 h-4 text-accent/60 mx-auto mb-2" />
+                  <p className="text-base md:text-lg font-heading font-semibold text-white">
+                    {f.title}
                   </p>
-                  <p className="text-[11px] font-mono text-muted/50 uppercase tracking-wider mt-1">{m.label}</p>
+                  <p className="text-[11px] font-mono text-muted/50 uppercase tracking-wider mt-1">{f.label}</p>
                 </div>
               ))}
             </div>
@@ -192,7 +220,7 @@ function FeaturedProject() {
             {/* Case study — deep dive */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mb-10">
               {[
-                { label: 'The Problem', text: featured.problem },
+                { label: 'The Goal', text: featured.problem },
                 { label: 'Our Approach', text: featured.approach },
                 { label: 'The Outcome', text: featured.outcome },
               ].map((item, idx) => (
@@ -254,13 +282,20 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
         <div className="relative bg-surface border border-white/[0.04] h-full rounded-2xl p-7 hover:border-white/[0.08] transition-all duration-500 flex flex-col">
           <div className="relative z-10 flex flex-col h-full">
-            {/* Top — metric callout */}
+            {/* Top — badge / category callout */}
             <div className="flex items-start justify-between mb-6">
               <div>
-                <p className="text-3xl md:text-4xl font-heading font-bold tracking-tight" style={{ color: project.color }}>
-                  {project.metric}
-                </p>
-                <p className="text-[10px] font-mono text-muted/40 uppercase tracking-wider mt-1">{project.metricLabel}</p>
+                <span
+                  className="inline-block px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase border"
+                  style={{
+                    color: project.color,
+                    borderColor: `${project.color}30`,
+                    backgroundColor: `${project.color}10`,
+                  }}
+                >
+                  {project.badge}
+                </span>
+                <p className="text-[11px] font-mono text-muted/40 uppercase tracking-wider mt-2">{project.badgeLabel}</p>
               </div>
               <div className="flex gap-1.5">
                 {project.github && (
@@ -295,8 +330,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             >
               <div className="space-y-4 pb-4">
                 {[
-                  { label: 'Problem', text: project.problem },
-                  { label: 'Approach', text: project.approach },
+                  { label: 'The Goal', text: project.problem },
+                  { label: 'Our Approach', text: project.approach },
                   { label: 'Outcome', text: project.outcome },
                 ].map((item, idx) => (
                   <div key={idx}>

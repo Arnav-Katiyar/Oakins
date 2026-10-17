@@ -1,17 +1,13 @@
 /**
  * =====================================================================
- * GLOBAL COMPANY CONFIGURATION
+ * GLOBAL STUDIO CONFIGURATION
  * =====================================================================
- * Update your company details below. Any change here will smoothly
- * reflect everywhere across the website (preloader, hero, navbar,
- * about, services, metadata, etc.).
+ * MakeWay — Early-stage website & software development studio.
  */
 
 export const COMPANY = {
-  // Main Company Name — Update this anytime!
+  // Studio Name
   name: "MakeWay",
-
-  // Short name or acronym (e.g. for small tags or badges)
   shortName: "MakeWay",
 
   // Stylized logo pieces for Navbar animation
@@ -23,68 +19,59 @@ export const COMPANY = {
     dot: ".",
   },
 
-  // Primary taglines & elevator pitches
-  tagline: "Software solutions engineered to scale.",
-  subTagline: "We build bespoke websites, mobile apps, and high-performance digital systems.",
+  // Taglines & Hero Copy
+  tagline: "Good ideas deserve better websites.",
+  subTagline: "We design and build modern websites and digital experiences that help businesses establish their online presence and turn ideas into reality.",
 
   // Status badge on the hero section
-  statusText: "Accepting new client projects",
+  statusText: "Available for new projects",
 
-  // Hero Headline Words (each word is animated into view)
-  heroHeadline: ["We", "build", "software", "that", "survives", "real", "traffic."],
+  // Hero headline words (word-by-word animated reveal)
+  heroHeadline: ["Good", "ideas", "deserve", "better", "websites."],
 
-  // Services provided (replaces individual tech stack)
+  // Services offered (honest, practical capabilities)
   services: [
     {
-      title: "Web Applications & Platforms",
-      description: "Custom high-converting websites, web portals, SaaS platforms, and enterprise dashboards built on modern, lightning-fast frameworks.",
-      items: ["Next.js & React", "TypeScript", "Tailwind CSS", "SaaS Architecture", "High-Speed Optimization", "SEO & Web Vitals"],
+      title: "Business Websites",
+      description: "Modern, responsive websites that help businesses showcase their services, build credibility, and connect with potential customers.",
+      items: ["Responsive Layouts", "Next.js & React", "Clean Typography", "SEO Basics", "Contact Forms", "Fast Page Speeds"],
     },
     {
-      title: "Mobile App Development",
-      description: "Fluid iOS and Android applications designed for intuitive user engagement, native performance, and offline-first reliability.",
-      items: ["React Native", "iOS & Android", "Cross-Platform", "App Store Deployment", "Push Notifications", "Biometrics & Device APIs"],
+      title: "Web Applications",
+      description: "Interactive web experiences, internal tools, and dashboards designed around real workflows and user needs.",
+      items: ["Full-Stack Next.js", "React & TypeScript", "Custom Dashboards", "State Management", "Tailwind CSS", "Interactive UIs"],
     },
     {
-      title: "Cloud & Backend Infrastructure",
-      description: "Robust, secure APIs and microservices capable of withstanding heavy real-world traffic with high uptime.",
-      items: ["Node.js & Python", "PostgreSQL & MongoDB", "REST & GraphQL APIs", "Serverless Architecture", "Docker & CI/CD", "Security & Auth"],
+      title: "Backend & Integrations",
+      description: "APIs, databases, and third-party integrations that connect the pieces behind your digital product.",
+      items: ["REST APIs", "Node.js", "Database Setup", "Third-Party APIs", "Authentication", "Cloud Deployment"],
     },
     {
-      title: "UI/UX & Product Design",
-      description: "Human-centric interface design systems that turn complex business workflows into simple, elegant digital interactions.",
-      items: ["Design Systems", "Figma Prototyping", "Wireframing & User Flows", "Interactive Micro-Animations", "Design-to-Code Precision", "Usability Audits"],
+      title: "UI/UX & Landing Pages",
+      description: "Clear page structures, thoughtful interfaces, and focused landing pages designed to communicate your value.",
+      items: ["Figma Wireframes", "Landing Page Design", "Clear Navigation", "Visual Hierarchy", "Design Systems", "Prototyping"],
     },
   ],
 
-  // Working process (Discovery -> Architecture -> Sprint Build -> Launch)
+  // Working process
   process: [
     {
-      title: "Discovery & Strategy",
-      detail: "We unpack your business goals, target audience, and technical requirements to define a watertight roadmap before writing code.",
+      title: "Discovery & Planning",
+      detail: "We understand your business, audience, requirements, and goals before defining the scope.",
     },
     {
-      title: "Architecture & UX Design",
-      detail: "We design database schemas, API contracts, and user journeys into interactive prototypes, eliminating guesswork upfront.",
+      title: "Design & Structure",
+      detail: "We plan the user experience, page structure, and visual direction before moving into development.",
     },
     {
-      title: "Iterative Sprint Development",
-      detail: "Clean, type-safe development delivered in weekly milestones. You get continuous access to preview environments to test real progress.",
+      title: "Build & Refine",
+      detail: "We develop the solution, review feedback, and improve the details together.",
     },
     {
-      title: "Quality Assurance, Launch & Scale",
-      detail: "Rigorous automated testing, security audits, and zero-downtime deployment, followed by proactive monitoring to ensure reliability.",
+      title: "Testing & Launch",
+      detail: "We check responsiveness, functionality, and essential quality requirements before delivery.",
     },
-  ],
-
-  // Company key metrics
-  stats: [
-    { value: 40, suffix: "+", label: "Projects Delivered" },
-    { value: 99, suffix: ".9%", label: "System Uptime" },
-    { value: 250, suffix: "k+", label: "Active Users Served" },
-    { value: 100, suffix: "%", label: "On-Time Delivery" },
   ],
 };
 
-// Shorthand export for fast imports
 export const COMPANY_NAME = COMPANY.name;

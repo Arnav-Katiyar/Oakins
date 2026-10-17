@@ -46,7 +46,7 @@ export default function Portfolio() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <Hero />
-            <Marquee items={["WEB APPLICATIONS", "MOBILE APPS", "SOFTWARE SOLUTIONS", "CLOUD INFRASTRUCTURE", "UI/UX DESIGN", "API SYSTEMS"]} />
+            <Marquee items={["BUSINESS WEBSITES", "WEB APPLICATIONS", "LANDING PAGES", "UI/UX DESIGN", "PROTOTYPES", "DIGITAL SOLUTIONS"]} />
             <About />
             <div className="divider-line" />
             <Projects />

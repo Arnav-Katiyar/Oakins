@@ -37,7 +37,7 @@ export function Contact() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-8"
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tighter leading-[0.95] mb-8">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tighter leading-[0.95] mb-6">
               <span className="text-white">Got a project</span>
               <span className="text-accent">?</span>
               <br />
@@ -46,14 +46,27 @@ export function Contact() {
               <span className="text-white/40">happen.</span>
             </h2>
 
+            <p className="text-muted text-base md:text-lg font-light leading-relaxed max-w-xl mb-8">
+              Have an idea, need a website, or want to improve your online presence? Tell us what you're working on. Let's figure out the next step together.
+            </p>
+
             <a
               href="mailto:1anadi1sharma@gmail.com"
               data-hover
-              className="group inline-flex items-center gap-3 text-xl md:text-2xl text-accent hover:text-white transition-colors duration-300"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-deep-black font-semibold text-base md:text-lg hover:bg-accent hover:text-white transition-all duration-300"
             >
-              <span className="font-mono">1anadi1sharma@gmail.com</span>
-              <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
+              <span>Start a Conversation</span>
+              <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
             </a>
+
+            <div className="mt-6">
+              <a
+                href="mailto:1anadi1sharma@gmail.com"
+                className="text-sm font-mono text-muted/60 hover:text-accent transition-colors"
+              >
+                1anadi1sharma@gmail.com
+              </a>
+            </div>
           </motion.div>
 
           {/* Right — links */}
@@ -87,7 +100,7 @@ export function Contact() {
         {/* Footer */}
         <div className="mt-32 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[11px] text-muted/40 font-mono tracking-wider">
-            © {new Date().getFullYear()} ANADI SHARMA
+            © {new Date().getFullYear()} MAKEWAY STUDIO
           </p>
           <p className="text-[11px] text-muted/40 font-mono tracking-wider">
             DESIGNED & BUILT FROM SCRATCH

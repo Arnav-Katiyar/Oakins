@@ -1,62 +1,76 @@
-'use client';
-
-import { useState, useCallback } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Projects } from "@/components/Projects";
-import { Skills } from "@/components/Skills";
-import { Philosophy } from "@/components/Philosophy";
-import { Contact } from "@/components/Contact";
 import { Navbar } from "@/components/Navbar";
-import { CustomCursor } from "@/components/CustomCursor";
-import { Marquee } from "@/components/Marquee";
-import { Preloader } from "@/components/Preloader";
+import { Hero } from "@/components/Hero";
+import { SoundFamiliar } from "@/components/SoundFamiliar";
+import { WhatWeDo } from "@/components/WhatWeDo";
+import { SelectedWork } from "@/components/SelectedWork";
+import { HowWeWork } from "@/components/HowWeWork";
+import { AboutTeam } from "@/components/AboutTeam";
+import { Testimonials } from "@/components/Testimonials";
+import { Pricing } from "@/components/Pricing";
+import { FAQ } from "@/components/FAQ";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
 
-export default function Portfolio() {
-  const [loaded, setLoaded] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const progressScaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-  const handlePreloaderDone = useCallback(() => setLoaded(true), []);
-
+/**
+ * Oakins Website Main Page
+ * Follows the exact 11-section structure requested in the implementation brief:
+ * 1. Hero
+ * 2. Sound Familiar?
+ * 3. What We Do
+ * 4. Selected Work
+ * 5. How We Work
+ * 6. About the Team
+ * 7. Testimonials
+ * 8. Pricing
+ * 9. FAQ
+ * 10. Final CTA and Contact
+ * 11. Footer
+ *
+ * NOTE: Rendered directly in HTML without blocking client-side preloaders
+ * or fragile scroll-triggered opacity states, guaranteeing full visibility
+ * for crawlers, slow connections, and all devices.
+ */
+export default function OakinsWebsite() {
   return (
     <>
-      <CustomCursor />
-
-      {/* Preloader — renders on top, then exits */}
-      <Preloader onComplete={handlePreloaderDone} />
-
-      {/* Scroll progress */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-accent z-[100] origin-left"
-        style={{ scaleX: progressScaleX }}
-      />
-
+      {/* Top Navigation */}
       <Navbar />
 
-      {/* Main content fades in after preloader */}
-      <AnimatePresence>
-        {loaded && (
-          <motion.main
-            key="main"
-            className="min-h-screen"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            <Hero />
-            <Marquee items={["BUSINESS WEBSITES", "WEB APPLICATIONS", "LANDING PAGES", "UI/UX DESIGN", "PROTOTYPES", "DIGITAL SOLUTIONS"]} />
-            <About />
-            <div className="divider-line" />
-            <Projects />
-            <Skills />
-            <Philosophy />
-            <div className="divider-line" />
-            <Contact />
-          </motion.main>
-        )}
-      </AnimatePresence>
+      {/* Main Content Sections */}
+      <main className="min-h-screen">
+        {/* 1. Hero */}
+        <Hero />
+
+        {/* 2. Sound Familiar? */}
+        <SoundFamiliar />
+
+        {/* 3. What We Do (Services) */}
+        <WhatWeDo />
+
+        {/* 4. Selected Work */}
+        <SelectedWork />
+
+        {/* 5. How We Work (Process) */}
+        <HowWeWork />
+
+        {/* 6. About the Team */}
+        <AboutTeam />
+
+        {/* 7. Testimonials / Collaboration */}
+        <Testimonials />
+
+        {/* 8. Pricing Packages */}
+        <Pricing />
+
+        {/* 9. FAQ */}
+        <FAQ />
+
+        {/* 10. Final CTA & Contact */}
+        <FinalCTA />
+      </main>
+
+      {/* 11. Footer */}
+      <Footer />
     </>
   );
 }

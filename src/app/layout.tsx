@@ -1,15 +1,45 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { COMPANY } from "@/lib/company";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-heading" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+export const viewport: Viewport = {
+  themeColor: "#2E1F1B",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: `${COMPANY.name} — Modern Websites & Software Studio`,
-  description: `${COMPANY.subTagline}`,
+  title: "Oakins | Practical Digital Solutions for Small Businesses",
+  description: SITE_CONFIG.shortDescription,
+  applicationName: "Oakins",
+  authors: [{ name: "Anadi Sharma", url: "https://oakins.com" }],
+  keywords: [
+    "Oakins",
+    "small business website",
+    "Indore web design",
+    "business automation",
+    "order management system",
+    "digital partner",
+    "appointment booking website",
+    "workflow automation",
+  ],
+  openGraph: {
+    title: "Oakins | Practical Digital Solutions for Small Businesses",
+    description: SITE_CONFIG.shortDescription,
+    url: "https://oakins.com",
+    siteName: "Oakins",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oakins | Practical Digital Solutions for Small Businesses",
+    description: SITE_CONFIG.shortDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -18,10 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans bg-deep-black antialiased`}
-      >
+    <html lang="en">
+      <body className="bg-[#F6EBDD] text-[#2E1F1B] antialiased min-h-screen flex flex-col selection:bg-[#E3A23C] selection:text-[#2E1F1B]">
         {children}
       </body>
     </html>

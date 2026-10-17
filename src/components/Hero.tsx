@@ -1,142 +1,106 @@
 'use client';
-import { motion } from 'framer-motion';
-import { TextScramble } from './TextScramble';
-import { COMPANY } from '@/lib/company';
 
-const lineVariants = {
-  hidden: { width: 0 },
-  visible: { width: '100%', transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 } },
-};
-
-const wordVariants = {
-  hidden: { y: '100%', opacity: 0 },
-  visible: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-      delay: 0.3 + i * 0.08,
-    },
-  }),
-};
-
-const heroWords = COMPANY.heroHeadline;
+import { SITE_CONFIG } from '@/lib/siteConfig';
+import { BrandChevrons, BrandPillTrio } from './OakinsLogo';
+import { ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-20 md:pb-28 overflow-hidden">
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
-        }} />
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#F6EBDD]">
+      {/* Decorative Warm Geometric Elements (inspired by the business card) */}
+      <div className="absolute top-16 right-0 translate-x-12 opacity-40 pointer-events-none hidden lg:block" aria-hidden="true">
+        <BrandPillTrio height={120} pillColor="#EBD7B7" />
       </div>
 
-      {/* Accent orb */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-        className="absolute top-1/4 right-[15%] w-[400px] h-[400px] bg-accent/[0.07] blur-[120px] rounded-full pointer-events-none"
+      <div className="absolute -bottom-10 left-10 opacity-20 pointer-events-none hidden sm:block" aria-hidden="true">
+        <BrandChevrons count={8} size={28} color="#D2B07A" />
+      </div>
+
+      {/* Subtle organic warmth background glow */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#EBD7B7]/40 blur-[130px] rounded-full pointer-events-none"
+        aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 w-full">
-        {/* Status */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="flex items-center gap-3 mb-10"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          <TextScramble
-            text={COMPANY.statusText}
-            className="text-sm font-mono text-muted tracking-wide"
-            delay={1400}
-            speed={25}
-          />
-        </motion.div>
-
-        {/* Main headline — word by word reveal */}
-        <h1 className="text-[clamp(2.8rem,7.5vw,7.5rem)] font-heading font-bold tracking-tighter leading-[0.92] mb-8">
-          {heroWords.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-              <motion.span
-                className={`inline-block ${i >= 3 ? 'text-accent' : 'text-white'}`}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={wordVariants}
-              >
-                {word}
-              </motion.span>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
+        <div className="max-w-4xl">
+          {/* Small Top Badge */}
+          <div className="inline-flex items-center gap-2.5 bg-[#FFFFFF] border border-[#2E1F1B]/10 rounded-full px-4 py-1.5 mb-6 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#E3A23C]" />
+            <span className="text-xs sm:text-sm font-semibold text-[#2E1F1B]/80 tracking-wide">
+              {SITE_CONFIG.subLabel}
             </span>
-          ))}
-        </h1>
+          </div>
 
-        {/* Divider line animation */}
-        <motion.div
-          className="h-px bg-white/10 mb-8"
-          variants={lineVariants}
-          initial="hidden"
-          animate="visible"
-        />
+          {/* Main Headline */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-heading font-normal tracking-tight text-[#2E1F1B] leading-[1.08] mb-6">
+            Your business,{' '}
+            <span className="relative inline-block text-[#2E1F1B] font-medium">
+              <span className="relative z-10">organised</span>
+              <span
+                className="absolute left-0 bottom-1 sm:bottom-2 w-full h-3 sm:h-4 bg-[#EBD7B7] -z-0 rounded-sm opacity-80"
+                aria-hidden="true"
+              />
+            </span>{' '}
+            and running smoothly.
+          </h1>
 
-        {/* Bottom row — description + CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-        >
-          <p className="text-base md:text-lg text-muted max-w-lg font-light leading-relaxed">
-            We design and build modern websites and digital experiences that help businesses establish their online presence and turn ideas into reality.
+          {/* Supporting Text */}
+          <p className="text-lg sm:text-xl text-[#6A5B53] font-normal leading-relaxed max-w-2xl mb-10">
+            {SITE_CONFIG.shortDescription}
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          {/* CTAs and Capacity Notice */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            {/* Primary CTA: Book free 20-min check-up */}
             <a
-              href="#contact"
-              data-hover
-              className="group relative px-6 py-3 md:px-8 md:py-4 bg-white text-deep-black font-semibold rounded-full overflow-hidden transition-transform duration-300 hover:scale-105"
+              href={SITE_CONFIG.contact.bookingUrl}
+              className="inline-flex items-center justify-center gap-3 bg-[#E3A23C] hover:bg-[#cb8f31] text-[#2E1F1B] font-bold text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
-              <span className="relative z-10">Let's Talk</span>
-              <div className="absolute inset-0 bg-accent scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-              <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 z-10 font-semibold">Let's Talk</span>
+              <Calendar className="w-5 h-5 text-[#2E1F1B]" />
+              <span>Book a free 20-min business check-up</span>
+              <ArrowRight className="w-4 h-4 text-[#2E1F1B]" />
             </a>
+
+            {/* Secondary CTA: See how we help */}
             <a
-              href="#projects"
-              data-hover
-              className="px-6 py-3 md:px-8 md:py-4 text-muted font-medium rounded-full border border-white/10 hover:border-accent/50 hover:text-white transition-all duration-300"
+              href="#services"
+              className="inline-flex items-center justify-center gap-2 bg-[#FFFFFF] hover:bg-[#FAF4EB] text-[#2E1F1B] border border-[#2E1F1B]/15 font-semibold text-base px-7 py-4 rounded-full transition-colors"
             >
-              Explore Our Work
+              <span>See how we help</span>
+              <ArrowRight className="w-4 h-4 text-[#6A5B53]" />
             </a>
           </div>
-        </motion.div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-        >
-          <div className="w-1 h-2 rounded-full bg-white/40" />
-        </motion.div>
-      </motion.div>
+          {/* Capacity Status */}
+          {SITE_CONFIG.isCapacityActive && (
+            <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-[#6A5B53]">
+              <CheckCircle2 className="w-4 h-4 text-[#E3A23C]" />
+              <span>{SITE_CONFIG.capacityStatement} — no long queues, direct collaboration.</span>
+            </div>
+          )}
+        </div>
+
+        {/* Feature Highlights Banner */}
+        <div className="mt-16 pt-8 border-t border-[#2E1F1B]/10 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#9B8C83]">Designed for</span>
+            <span className="text-base font-semibold text-[#2E1F1B] mt-1">Shops, Clinics & Services</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#9B8C83]">Direct Contact</span>
+            <span className="text-base font-semibold text-[#2E1F1B] mt-1">No Account Managers</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#9B8C83]">Clear Deliverables</span>
+            <span className="text-base font-semibold text-[#2E1F1B] mt-1">Scope & Pricing Upfront</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#9B8C83]">Headquartered</span>
+            <span className="text-base font-semibold text-[#2E1F1B] mt-1">Indore, India</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
